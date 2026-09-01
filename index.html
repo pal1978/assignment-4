@@ -6,86 +6,105 @@
     <title>Application Login</title>
     <style>
         body {
-            background-color: #f0f2f5;
-            font-family: sans-serif;
+            background-color: #f3f4f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
-        .login-box {
+        .login-card {
             background: #ffffff;
-            padding: 40px;
+            padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 350px;
+            max-width: 360px;
             text-align: center;
         }
-        .logo-placeholder {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px auto;
-            background-color: #e4e6eb;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #65676b;
+        .logo-container img {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 15px;
         }
-        .form-control {
+        h2 {
+            color: #1f2937;
             margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .input-group {
             text-align: left;
+            margin-bottom: 15px;
         }
         label {
             display: block;
             margin-bottom: 5px;
-            color: #1c1e21;
-            font-size: 14px;
+            color: #4b5563;
+            font-size: 0.875rem;
         }
         input[type="text"], input[type="password"] {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccd0d5;
-            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
             box-sizing: border-box;
+            font-size: 0.875rem;
+        }
+        .utilities {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .forgot-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.84rem;
+        }
+        .forgot-link:hover {
+            text-decoration: underline;
         }
         button {
             width: 100%;
-            padding: 12px;
-            background-color: #1877f2;
+            padding: 10px;
+            background-color: #2563eb;
             color: white;
             border: none;
-            border-radius: 6px;
-            font-size: 16px;
+            border-radius: 4px;
+            font-size: 1rem;
             cursor: pointer;
         }
         button:hover {
-            background-color: #166fe5;
+            background-color: #1d4ed8;
         }
     </style>
 </head>
 <body>
 
-    <div class="login-box">
-        <!-- Placeholder for application icon -->
-        <div class="logo-placeholder">Logo</div>
+    <div class="login-card">
+        <!-- The logo source points to your local 1.jpg file -->
+        <div class="logo-container">
+            <img src="1.jpg" alt="Application Logo">
+        </div>
         
-        <h2>Sign In</h2>
+        <h2>Portal Login</h2>
         
-        <form action="/login-endpoint" method="POST">
-            <div class="form-control">
-                <label for="uid">Username</label>
-                <input type="text" id="uid" name="username" required autocomplete="username">
+        <form action="/login-handler" method="POST">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required autocomplete="username">
             </div>
             
-            <div class="form-control">
-                <label for="pwd">Password</label>
-                <input type="password" id="pwd" name="password" required autocomplete="current-password">
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
             </div>
             
-            <button type="submit">Log In</button>
+            <div class="utilities">
+                <a href="/forgot-password" class="forgot-link">Forgot Password?</a>
+            </div>
+            
+            <button type="submit">Sign In</button>
         </form>
     </div>
 
