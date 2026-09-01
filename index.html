@@ -3,76 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Login</title>
+    <title>Application Portal</title>
     <style>
         body {
-            background-color: #f3f4f6;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
-        .login-card {
-            background: #ffffff;
-            padding: 30px;
+        .portal-container {
+            background-color: #ffffff;
+            padding: 32px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             width: 100%;
-            max-width: 360px;
+            max-width: 380px;
             text-align: center;
+            border-top: 4px solid #1e3a8a;
         }
-        .logo-container img {
-            max-width: 100px;
+        .portal-logo {
+            max-width: 90px;
             height: auto;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
         h2 {
-            color: #1f2937;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin: 0 0 24px 0;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .input-group {
+        .form-field {
             text-align: left;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
         label {
             display: block;
-            margin-bottom: 5px;
-            color: #4b5563;
+            margin-bottom: 6px;
+            color: #334155;
             font-size: 0.875rem;
+            font-weight: 500;
         }
         input[type="text"], input[type="password"] {
             width: 100%;
             padding: 10px;
-            border: 1px solid #d1d5db;
+            border: 1px solid #cbd5e1;
             border-radius: 4px;
             box-sizing: border-box;
-            font-size: 0.875rem;
+            font-size: 0.95rem;
         }
-        .utilities {
+        input[type="text"]:focus, input[type="password"]:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: -1px;
+        }
+        .form-actions {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
-        .forgot-link {
+        .recovery-link {
             color: #2563eb;
             text-decoration: none;
-            font-size: 0.84rem;
+            font-size: 0.85rem;
         }
-        .forgot-link:hover {
+        .recovery-link:hover {
             text-decoration: underline;
         }
         button {
             width: 100%;
-            padding: 10px;
-            background-color: #2563eb;
-            color: white;
+            padding: 12px;
+            background-color: #1e3a8a;
+            color: #ffffff;
             border: none;
             border-radius: 4px;
             font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
+            transition: background-color 0.2s;
         }
         button:hover {
             background-color: #1d4ed8;
@@ -81,30 +91,28 @@
 </head>
 <body>
 
-    <div class="login-card">
-        <!-- The logo source points to your local 1.jpg file -->
-        <div class="logo-container">
-            <img src="1.jpg" alt="Application Logo">
-        </div>
+    <div class="portal-container">
+        <!-- Resolves to the images1.png file in your repository directory -->
+        <img src="images1.png" alt="Portal Icon" class="portal-logo">
         
-        <h2>Portal Login</h2>
+        <h2>Service Portal Login</h2>
         
-        <form action="/login-handler" method="POST">
-            <div class="input-group">
-                <label for="username">Username</label>
+        <form action="#" method="POST" onsubmit="event.preventDefault();">
+            <div class="form-field">
+                <label for="username">Username / ID</label>
                 <input type="text" id="username" name="username" required autocomplete="username">
             </div>
             
-            <div class="input-group">
+            <div class="form-field">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required autocomplete="current-password">
             </div>
             
-            <div class="utilities">
-                <a href="/forgot-password" class="forgot-link">Forgot Password?</a>
+            <div class="form-actions">
+                <a href="#" class="recovery-link">Forgot Password?</a>
             </div>
             
-            <button type="submit">Sign In</button>
+            <button type="submit">Log In</button>
         </form>
     </div>
 
